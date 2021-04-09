@@ -29,6 +29,7 @@ object C18Hepler {
     private val TAG = "データ分析"
 
 
+    // 接続要求の確認
     fun dealAckCode(ackData:ByteArray) : Boolean{
         var result = false
         var tRetCode = 0
@@ -42,6 +43,7 @@ object C18Hepler {
         return result
     }
 
+    // 接続要求コードナンバー取得
     fun dealAckCodeNumber(ackData: ByteArray) : Int {
         var tRetCode:UByte = 0u
 
@@ -52,6 +54,7 @@ object C18Hepler {
         return tRetCode.toInt()
     }
 
+    // アラーム情報を取得する
     fun dealAlarm(alarmData:ByteArray) : Map<BleIdentificationKey,Any>? {
         var offset = 0
 
@@ -73,13 +76,14 @@ object C18Hepler {
                 tSettedAlarmNum = buff.get(offset).toUByte()
                 offset += 1
                 var alarmTimeArr = arrayListOf<C18_AlarmTime>()
+                // 設定している情報があれば詳細情報もデバイスから取得する
                 if (tSettedAlarmNum.toInt() > 0) {
                     var tAlarmType:UByte = 0u
                     var tAlarmHour:UByte = 0u
                     var tAlarmMin:UByte  = 0u
                     var tAlarmRepeat:UByte = 0u
                     var tAlarmDelayTime:UByte = 0u
-
+                    // 設定分データを取得
                     repeat(tSettedAlarmNum.toInt()) {
                         tAlarmType = buff.get(offset).toUByte()
                         offset += 1
@@ -101,6 +105,7 @@ object C18Hepler {
         return null
     }
 
+    // 各種ユーザーの設定をデバイスからbyte形式で取得し数値に変換
     fun dealDeviceInfo(infoData:ByteArray) : Map<BleIdentificationKey,Any>? {
         var tDevId:UShort = 0u
         var tDevVersionNum:UShort = 0u
@@ -313,6 +318,7 @@ object C18Hepler {
         return mapOf(BleIdentificationKey.C18_UserSetInfo to userSetInfo)
     }
 
+    // デバイスのサポート機能の取得
     fun dealSupport(supportData:ByteArray) : Map<BleIdentificationKey,Any>? {
         var tMain1:UByte = 0u
         var tMain2:UByte = 0u
@@ -449,6 +455,7 @@ object C18Hepler {
         return mapOf(BleIdentificationKey.C18_SwitchStatusInfo to switchStatusInfo)
     }
 
+    // デバイスのマックアドレスを設定
     fun dealDeviceMac(macData:ByteArray) : Map<BleIdentificationKey,Any>? {
         var tMac0:UByte = 0u
         var tMac1:UByte = 0u
@@ -478,12 +485,14 @@ object C18Hepler {
         return mapOf(BleIdentificationKey.C18_DeviceMacInfo to macStr)
     }
 
+    //デバイス名の設定
     fun dealDeviceName(deviceData:ByteArray) : Map<BleIdentificationKey,Any>? {
         val deviceName:String = deviceData.toString(Charsets.UTF_8)
         Log.d(TAG,"デバイス名前:${deviceName}")
         return mapOf(BleIdentificationKey.C18_DeviceNameInfo to deviceName)
     }
 
+    // デバイスのホーム画面表示設定の情報を取得
     fun dealMainTheme(themeData:ByteArray) : Map<BleIdentificationKey,Any>? {
         var tTotalIndex:UByte = 0u
         var tCurIndex:UByte = 0u
@@ -545,6 +554,7 @@ object C18Hepler {
         return mapOf(BleIdentificationKey.C18_HistoryNum to tHistoryNum.toInt(),BleIdentificationKey.C18_HistoryTotalByte to tHistoryTotalByte.toInt(),BleIdentificationKey.C18_HistoryTotalCrc to tHistoryTotalCrc.toInt())
     }
 
+    // 過去の健康データを取得
     fun dealHistoryData(historyData:ByteArray,keyType:C18_HealthData_Key){
         val secondsFromGMT = C18Utils.getSecondsFromGMT()
         val buffData = ByteBuffer.wrap(historyData).order(ByteOrder.LITTLE_ENDIAN)

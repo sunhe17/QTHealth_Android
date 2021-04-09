@@ -3,8 +3,12 @@ package qoi.myhealth.Ble
 import android.bluetooth.*
 import android.bluetooth.le.*
 import android.content.Context
+import android.os.Handler
 import android.os.ParcelUuid
 import android.util.Log
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import qoi.myhealth.Ble.C18.C18Delegate
 import qoi.myhealth.Ble.Extension.toHexString
 import qoi.myhealth.Ble.Spo2.Spo2Delegate
@@ -56,12 +60,15 @@ object BleManager {
             if (gatt == null || status != BluetoothGatt.GATT_SUCCESS) {
                 return
             }
+            val isC18 = mGatt!!.getService(ServiceUUID.C18_PULSE.uuid) != null
+            val isSPO2 = mGatt!!.getService(ServiceUUID.SPO2_PULSE.uuid) != null
             for (tService in mGatt!!.services){
                 println("Service : " + tService.uuid)
                 for (char in tService.characteristics){
                     println("Char : ${char.uuid}")
                 }
-                if (tService.uuid == ServiceUUID.C18_SERVICE.uuid){
+
+                if (isC18 && tService.uuid == ServiceUUID.C18_SERVICE.uuid){
                     Log.d(TAG,"C18サービスが見つけた")
                     val readChar = tService.getCharacteristic(ServiceUUID.C18_kRead.uuid)
                     mGatt!!.setCharacteristicNotification(readChar,true)
@@ -71,7 +78,7 @@ object BleManager {
                     mGatt!!.writeDescriptor(rDescriptor)
                     writeChar = tService.getCharacteristic(ServiceUUID.C18_kWrite1.uuid)
                     mGatt!!.setCharacteristicNotification(writeChar,true)
-                }else if (tService.uuid == ServiceUUID.SPO2_SERVICE.uuid) {
+                }else if (isSPO2 && tService.uuid == ServiceUUID.SPO2_SERVICE.uuid) {
                     Log.d(TAG,"SPO2サービスが見つけた")
                     val readChar = tService.getCharacteristic(ServiceUUID.SPO2_kRead1.uuid)
                     mGatt!!.setCharacteristicNotification(readChar,true)
@@ -175,10 +182,13 @@ object BleManager {
     fun retrieveDevice(context: Context, var1:String){
 
         val device = bluetoothAdapter!!.getRemoteDevice(var1)
-        device.connectGatt(context,true,gattCallback)
+        device.connectGatt(context, true, gattCallback)
+    }
 
-
-
+    //デバイス切断
+    fun disconnectToDevice(){
+        mGatt!!.close();
+        mGatt = null;
     }
 
 }
