@@ -187,8 +187,7 @@ object BleManager {
 
     //デバイス切断
     fun disconnectToDevice(){
-        mGatt!!.close();
-        mGatt = null;
+        mGatt!!.disconnect();
     }
 
 }

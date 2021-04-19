@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeviceSettingActivity">
+
+
+    <ScrollView
+        android:layout_width="429dp"
+        android:layout_height="330dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--テーマ-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/deviceTheme"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="153dp"
+                    android:layout_height="61dp"
+                    android:text="テーマ"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/themeVal"
+                    app:layout_constraintHorizontal_bias="0.487"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.333" />
+
+                <TextView
+                    android:id="@+id/themeVal"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--座り過ぎアラート通知-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/longSite"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/deviceTheme"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="座り過ぎアラート通知"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/longSiteVal"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/longSiteVal"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--アラート-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/alert"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/longSite"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="アラート"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.223"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--自動計測間隔時間-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/autoInterval"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/alert"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="自動計測間隔時間"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/autoIntervalVal"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/autoIntervalVal"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--紛失防止設定-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lose"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/autoInterval"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="紛失防止設定"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.227"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--スクリーン自動点灯-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/autoScreen"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/lose"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="スクリーン自動点灯"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/raiseDisplaySwitch"
+                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Switch
+                    android:id="@+id/raiseDisplaySwitch"
+                    android:layout_width="50dp"
+                    android:layout_height="39dp"
+                    android:layout_marginEnd="88dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="10dp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--着用位置-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/handWear"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/autoScreen"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="着用位置"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/handWearVal"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/handWearVal"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--画面の明るさ-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/screenBright"
+                android:layout_width="410dp"
+                android:layout_height="58dp"
+                app:layout_constraintTop_toBottomOf="@+id/handWear"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="54dp"
+                    android:text="スクリーンの明るさ"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/screenBrightVal"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/screenBrightVal"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

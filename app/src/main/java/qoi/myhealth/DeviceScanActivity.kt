@@ -1,21 +1,22 @@
 package qoi.myhealth
 
 import android.bluetooth.BluetoothDevice
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import qoi.myhealth.Ble.BleManager
 import qoi.myhealth.Ble.BleDelegate
 import qoi.myhealth.Ble.model.BleDevice
 import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.adapter.DeviceAdapter
 
-class DeviceScanActivity : AppCompatActivity(), AdapterView.OnItemClickListener,
-    BleDelegate {
+class DeviceScanActivity :  AdapterView.OnItemClickListener,
+    BaseActivity() {
 
-    val bleManager: BleManager = BleManager
     var deviceList:MutableList<BleDevice>? = null
     var deviceAdapter:DeviceAdapter? = null
 
@@ -39,6 +40,9 @@ class DeviceScanActivity : AppCompatActivity(), AdapterView.OnItemClickListener,
             }
             deviceList?.add(newScanedDevice)
             deviceAdapter?.notifyDataSetChanged()
+
+            // 接続強度順に並び替え
+            deviceList!!.sortBy { it.device_rssi * -1 }
         }
 
         deviceListView.setOnItemClickListener(this)
@@ -60,5 +64,11 @@ class DeviceScanActivity : AppCompatActivity(), AdapterView.OnItemClickListener,
     }
 
     override fun onBleDeviceDisConnection() {
+    }
+
+    // ページ遷移等が入った場合スキャンを中断する
+    override fun onPause() {
+        super.onPause()
+        bleManager.stopDeviceScaner()
     }
 }

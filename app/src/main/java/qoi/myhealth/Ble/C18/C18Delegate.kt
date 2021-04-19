@@ -106,7 +106,7 @@ class C18Delegate(mGatt: BluetoothGatt) :
                 val tKey = C18_Setting_Key.getKey(tKey)
                 when (tKey) {
                     C18_Setting_Key.Time,C18_Setting_Key.Antilose,C18_Setting_Key.UserInfo,C18_Setting_Key.LongSite,C18_Setting_Key.DisplayBright,
-                    C18_Setting_Key.RaiseScreen,C18_Setting_Key.HeartAlarm,C18_Setting_Key.ReSet,C18_Setting_Key.Language,C18_Setting_Key.HandWear,
+                    C18_Setting_Key.RaiseScreen,C18_Setting_Key.HeartAlarm,C18_Setting_Key.HeartAutoMode,C18_Setting_Key.ReSet,C18_Setting_Key.Language,C18_Setting_Key.HandWear,
                     C18_Setting_Key.BloodRange,C18_Setting_Key.MainTheme,C18_Setting_Key.SkinColor,C18_Setting_Key.SleepMode-> {
                         val subData = buffData.array().copyOfRange(tOffset,tOffset + (tDataLen - 6))
                         val result = C18Hepler.dealAckCode(subData)
