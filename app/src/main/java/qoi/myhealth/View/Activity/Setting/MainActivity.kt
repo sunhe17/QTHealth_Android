@@ -1,25 +1,27 @@
-package qoi.myhealth
+package qoi.myhealth.View.Activity.Setting
 
 
-import android.accounts.OnAccountsUpdateListener
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
+import android.os.LocaleList
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.*
-import qoi.myhealth.Ble.BleDelegate
+import kotlinx.android.synthetic.main.my_toolbar.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import qoi.myhealth.Ble.BleIdentificationKey
-import qoi.myhealth.Ble.BleManager
 import qoi.myhealth.Ble.C18.C18Delegate
 import qoi.myhealth.Ble.C18.CMD.C18_Theme_Type
 import qoi.myhealth.Ble.C18.Model.*
+import qoi.myhealth.Controller.Util.AppStatusCheck
 import qoi.myhealth.Manager.ShareDataManager
-import qoi.myhealth.tool.AppStatusCheck
+import qoi.myhealth.R
+import java.util.*
 
-class MainActivity : BaseActivity() {
+class MainActivity: BaseActivity(){
 
     private val deviceDisconnectName:String = "デバイス未接続"
 
@@ -27,58 +29,22 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ラベル初期化
-        textView.setText(deviceDisconnectName)
+        // 仮で強制的に未接続にする　TODO テストのみ使用
+        //ShareDataManager.saveConnectType(null)
 
         // 初回起動か確認
-        if(AppStatusCheck.isFirstJudgment(getApplicationContext())){
-            println("first")
-            AppStatusCheck.setFirstFlg(getApplicationContext(),false)
+        if(AppStatusCheck.isFirstJudgment(this)){
+           val intent = Intent(this,SetMyIDActivity::class.java)
+           startActivity(intent)
         }
         else{
             println("not_first")
         }
 
-        // デバイス接続画面委遷移
-        toDeviceScanVC_btn.setOnClickListener {
-            println("clicked")
-            val intent = Intent(this,DeviceScanActivity::class.java)
-            startActivity(intent)
-        }
+        // 位置情報権限確認
+        AppStatusCheck.checkPermission(this,this)
 
-        // Status取得テストコマンドボタン
-        toAction.setOnClickListener {
-            println("action clicked")
-            println(bleManager.deviceDelegate)
-            // デバイスと接続確認
-            if (bleManager.deviceDelegate != null){
-                userSetInfoTest()
-            }
-        }
-
-        // Status設定コマンドボタン
-        testBtn.setOnClickListener {
-            // デバイスと接続確認
-            if (bleManager.deviceDelegate != null){
-                //val userInfoJson = ShareDataManager.getUserSetInfo()
-                (bleManager.deviceDelegate as C18Delegate).settingDisplayBright(0){bleResult, info ->
-                    userSetInfoTest()
-                }
-            }
-        }
-
-        // デバイス切断ボタン
-        disconnectBtn.setOnClickListener{
-            if(bleManager.deviceDelegate != null){
-                bleManager.disconnectToDevice()
-            }
-        }
-
-        // 設定画面遷移ボタン
-        settingBtn.setOnClickListener{
-            val intent = Intent(this,DeviceSettingActivity::class.java)
-            startActivity(intent)
-        }
+        createHome()
 
         // 自動接続実行
         //tryToConnectDevice()
@@ -86,26 +52,21 @@ class MainActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        setDeviceTolabel()
+        selectNavi()
+        head_title.text = "HOME"
+        toolbtn.visibility = View.GONE
+        backimg.visibility = View.GONE
     }
 
-    // ラベルにデバイス名を表示する
-    fun setDeviceTolabel(){
-
-         // 設定してるデバイスがない場合早期リターン
-         if (bleManager.deviceDelegate == null) {
-             return
-         }
-
-        // 設定しているデバイスがあればデバイス名の表示
-        (bleManager.deviceDelegate as C18Delegate).getDeviceName{bleResult, info ->
-            val devideName: String = info!!.get(BleIdentificationKey.C18_DeviceNameInfo)as String
-            GlobalScope.launch(Dispatchers.Main) {
-                // ラベルに接続しているデバイス名を表示
-                textView.setText(devideName)
-            }
-        }
+    override fun attachBaseContext(base: Context) {
+        //val locale = Locale.ENGLISH
+        val locale = Locale.getDefault()
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocales(LocaleList(locale))
+        super.attachBaseContext(base.createConfigurationContext(config))
     }
+
 
     fun syncHealthDataTest() {
         bleManager.deviceDelegate!!.syncHealthData { bleResult, map ->  }
@@ -176,23 +137,20 @@ class MainActivity : BaseActivity() {
         if (deviceMac != null){
             bleManager.retrieveDevice(this, deviceMac)
         }
-    }
-
-    override fun onBleDeviceConnection() {
-        println("onBleDeviceConnection")
-        println(ShareDataManager.getConnectionDeviceMac())
-
-        // 現在接続しているデバイスの名前を取得
-        setDeviceTolabel()
-    }
-
-    override fun onBleDeviceDisConnection() {
-        Log.d(TAG,"onBleDeviceDisConnectio")
-
-        if (bleManager.deviceDelegate == null) {
-            textView.setText(deviceDisconnectName)
+        else{
+            ShareDataManager.saveConnectType(null)
         }
     }
 
+    override fun onBleDeviceConnection() {
+    }
+
+    override fun onBleDeviceDisConnection() {
+    }
+
+
+    fun setNavi(id: Int){
+        bottom_navigation.selectedItemId = id
+    }
 
 }
