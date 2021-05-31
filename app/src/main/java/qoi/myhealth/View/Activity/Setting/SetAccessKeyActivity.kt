@@ -13,6 +13,10 @@ import kotlinx.android.synthetic.main.activity_access_key.nextimg
 import kotlinx.android.synthetic.main.activity_myid.description
 import kotlinx.android.synthetic.main.activity_myid.qrimg
 import kotlinx.android.synthetic.main.my_toolbar.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import qoi.myhealth.API.APIBase
 import qoi.myhealth.Ble.model.Device_ID_KEY
 import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.R
@@ -68,11 +72,23 @@ class SetAccessKeyActivity: AppCompatActivity() {
 
         nextimg.setOnClickListener{
             if(accesskeyval.text.toString() != null){
-                scanData.key = accesskeyval.text.toString()
-                ShareDataManager.saveScanData(scanData)
+                val context = this
+                APIBase.getInstance().getAuthToken(accesskeyval.text.toString()){ code, token->
+                    GlobalScope.launch(Dispatchers.Main){
+                        if(code ==  APIBase.getInstance().OK){
+                            scanData.key = accesskeyval.text.toString()
+                            scanData.auth = true
+                            ShareDataManager.saveScanData(scanData)
 
-                val intent = Intent(this,UserSettingActivity::class.java)
-                startActivity(intent)
+                            val intent = Intent(context,UserSettingActivity::class.java)
+                            startActivity(intent)
+                            Toast.makeText(context, "認証に成功しました", Toast.LENGTH_LONG).show()
+                        }
+                        else{
+                            Toast.makeText(context,"認証に失敗しました", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
             }
             else{
                 Toast.makeText(this, "ACCESS KEYを入力してください", Toast.LENGTH_LONG).show()

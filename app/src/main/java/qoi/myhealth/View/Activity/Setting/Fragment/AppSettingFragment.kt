@@ -2,18 +2,27 @@ package qoi.myhealth.View.Activity.Setting.Fragment
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.getIntent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.android.synthetic.main.activity_access_key.*
 import kotlinx.android.synthetic.main.fragment_appsetting.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import qoi.myhealth.API.APIBase
 import qoi.myhealth.Ble.BleDelegate
 import qoi.myhealth.Ble.C18.SettingDialog.InputDialog
 import qoi.myhealth.Ble.C18.SettingDialog.pickerDialog
@@ -22,11 +31,14 @@ import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.R
 import qoi.myhealth.View.Activity.C18.LongSiteFragment
 import qoi.myhealth.View.Activity.Setting.MainActivity
+import qoi.myhealth.View.Activity.Setting.MyCaptureActivity
+import qoi.myhealth.View.Activity.Setting.UserSettingActivity
+import java.util.*
 
 class AppSettingFragment:Fragment() {
-    private var group:ViewGroup? = null
+    private var group: ViewGroup? = null
 
-    val laugaugeList: Array<String> = arrayOf("JS","ENG","CH")
+    private val laugaugeList: Array<String> = arrayOf("JS", "ENG", "CH")
     private var uuidText: TextView? = null
     private var uuidEditBUtton: Button? = null
     private var accessKeyImg: ImageView? = null
@@ -36,10 +48,15 @@ class AppSettingFragment:Fragment() {
     private var sleepGoalValue: TextView? = null
     private var languageValue: TextView? = null
 
+    private var inflater: LayoutInflater? = null
+    private var dialogView: View? = null
+
     companion object {
-        fun createInstance() : AppSettingFragment {
-            val fragmentMain = AppSettingFragment()
-            return fragmentMain
+        // シングルトンインスタンスの宣言
+        private var instance:  AppSettingFragment  =  AppSettingFragment ()
+        // インスタンス取得
+        fun createInstance() :  AppSettingFragment  {
+            return instance
         }
     }
 
@@ -60,7 +77,7 @@ class AppSettingFragment:Fragment() {
         setting()
     }
 
-    private fun setToolBar(){
+    private fun setToolBar() {
         val maActivity = activity as MainActivity?
 
         maActivity?.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
@@ -70,7 +87,7 @@ class AppSettingFragment:Fragment() {
         title.text = getString(R.string.appSetting_Title)
 
         val backBtn = activity!!.findViewById<View>(qoi.myhealth.R.id.backimg) as ImageView
-        backBtn.setOnClickListener{
+        backBtn.setOnClickListener {
             maActivity!!.setNavi(R.id.device)
         }
 
@@ -82,7 +99,7 @@ class AppSettingFragment:Fragment() {
         }
     }
 
-    private fun init(){
+    private fun init() {
         // UUID
         uuidText = view!!.findViewById<View>(R.id.uuid) as TextView
         uuidText!!.text = userAuthInfo.uuid
@@ -134,11 +151,11 @@ class AppSettingFragment:Fragment() {
         languageValue!!.text = laugaugeList[userAuthInfo.language]
     }
 
-    private fun setting(){
+    private fun setting() {
         // uuid
         val uuidEditButton = view!!.findViewById<View>(R.id.uuid_edit_btn) as Button
         uuidEditButton.setOnClickListener {
-            InputDialog(group!!.context,"ID編集",userAuthInfo.uuid,"String"){
+            InputDialog(group!!.context, "ID編集", userAuthInfo.uuid, "String") {
                 userAuthInfo.uuid = it
                 ShareDataManager.saveScanData(userAuthInfo)
             }
@@ -147,10 +164,23 @@ class AppSettingFragment:Fragment() {
         // アクセスキー認証
         val accessKeyEditButton = view!!.findViewById<View>(R.id.access_key_btn) as Button
         accessKeyEditButton.setOnClickListener {
-            InputDialog(group!!.context,"キー編集",userAuthInfo.key,"String"){
-                userAuthInfo.key = it
-                ShareDataManager.saveScanData(userAuthInfo)
-                /// TODO APIでアクセスキーの状態を更新し認証できれば画像を更新する
+            accessKeyDialog("キー編集", userAuthInfo.key) { it ->
+                APIBase.getInstance().getAuthToken(it){ code, token->
+                    GlobalScope.launch(Dispatchers.Main){
+                        if(code ==  APIBase.getInstance().OK){
+                            userAuthInfo.key = it
+                            userAuthInfo.auth = true
+                            ShareDataManager.saveScanData(userAuthInfo)
+                            Toast.makeText(group!!.context, "認証に成功しました", Toast.LENGTH_LONG).show()
+                        }
+                        else{
+                            userAuthInfo.auth = false
+                            ShareDataManager.saveScanData(userAuthInfo)
+                            Toast.makeText(group!!.context, "認証に失敗しました", Toast.LENGTH_LONG).show()
+                        }
+                        changeAccessState()
+                    }
+                }
             }
         }
 
@@ -166,8 +196,13 @@ class AppSettingFragment:Fragment() {
         // 歩数目標
         val walkGoalButton = view!!.findViewById<View>(R.id.walk_goal_btn) as Button
         walkGoalButton.setOnClickListener {
-            InputDialog(group!!.context,"歩数目標",userAuthInfo.walkGoal.toString(),"Int"){inputname->
-                if(inputname.toIntOrNull() != null){
+            InputDialog(
+                group!!.context,
+                "歩数目標",
+                userAuthInfo.walkGoal.toString(),
+                "Int"
+            ) { inputname ->
+                if (inputname.toIntOrNull() != null) {
                     userAuthInfo.walkGoal = inputname.toInt()
                     walkGoalValue!!.text = inputname
                 }
@@ -177,8 +212,13 @@ class AppSettingFragment:Fragment() {
         // 睡眠目標
         val sleepGoalButton = view!!.findViewById<View>(R.id.sleep_goal_btn) as Button
         sleepGoalButton.setOnClickListener {
-            InputDialog(group!!.context,"睡眠目標",userAuthInfo.sleepGoal.toString(),"Double"){inputname->
-                if(inputname.toDoubleOrNull() != null){
+            InputDialog(
+                group!!.context,
+                "睡眠目標",
+                userAuthInfo.sleepGoal.toString(),
+                "Double"
+            ) { inputname ->
+                if (inputname.toDoubleOrNull() != null) {
                     userAuthInfo.sleepGoal = inputname.toDouble()
                     sleepGoalValue!!.text = inputname
                 }
@@ -188,22 +228,66 @@ class AppSettingFragment:Fragment() {
         // 言語設定
         val langaugeButton = view!!.findViewById<View>(R.id.language_btn) as Button
         langaugeButton.setOnClickListener {
-            pickerDialog(group!!.context,"言語設定",laugaugeList,laugaugeList[userAuthInfo.language]){item->
+            pickerDialog(
+                group!!.context,
+                "言語設定",
+                laugaugeList,
+                laugaugeList[userAuthInfo.language]
+            ) { item ->
                 userAuthInfo.language = item
                 languageValue!!.text = laugaugeList[item]
+                ShareDataManager.saveScanData(userAuthInfo)
+
+                val maActivity = activity as MainActivity?
+                maActivity!!.reload()
             }
         }
 
     }
 
-    private fun changeAccessState(){
+    private fun changeAccessState() {
         // 認証状態
-        if(userAuthInfo.auth){
+        if (userAuthInfo.auth) {
             accessKeyImg!!.setImageResource(R.drawable.skin_white)
         }
         // 非認証状態
-        else{
+        else {
             accessKeyImg!!.setImageResource(R.drawable.skin_brown)
         }
+    }
+
+    private fun accessKeyDialog(title: String, data: String, method1: (String) -> Unit) {
+        inflater = LayoutInflater.from(group!!.context)
+        dialogView = inflater!!.inflate(qoi.myhealth.R.layout.layout_accesskey_dialog, null)
+        val text = dialogView!!.findViewById<EditText>(R.id.access_key_value)
+        text.setText(data)
+
+        AlertDialog.Builder(group!!.context)
+            .setTitle(title)
+            .setView(dialogView)
+            .setPositiveButton("確定") { dialog, which ->
+                method1(text.text.toString())
+            }
+            .setNegativeButton("キャンセル", null)
+            .show()
+
+        val qrbtn = dialogView!!.findViewById<ImageButton>(qoi.myhealth.R.id.qr_btn)
+        qrbtn.setOnClickListener {
+            val intentIntegrator = IntentIntegrator(activity).apply {
+                setPrompt("Scan a QR code")
+                captureActivity = MyCaptureActivity::class.java
+            }
+            intentIntegrator.initiateScan()
+        }
+    }
+
+    fun setKeyView(data: String){
+        val text = dialogView!!.findViewById<EditText>(R.id.access_key_value)
+        val replaceData = data.replace("QOI://?access=","")
+        text.setText(replaceData)
+    }
+
+    fun getLangauge(): Int{
+        return userAuthInfo.language
     }
 }

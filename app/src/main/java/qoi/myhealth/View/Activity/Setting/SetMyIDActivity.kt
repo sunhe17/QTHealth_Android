@@ -49,7 +49,10 @@ class SetMyIDActivity:AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         var scanData:Device_ID_KEY = ShareDataManager.getScanData()
-        println("uui->"+scanData!!.uuid)
+
+        if(scanData.uuid == "" ){
+            scanData.uuid = "ANDROID"+ android.provider.Settings.Secure.getString(getContentResolver(),android.provider.Settings.Secure.ANDROID_ID).toUpperCase()
+        }
 
         description.text = """
                             MyiDとはあなたの識別番号です。システムから36桁の番号が自動的に配布されます。

@@ -7,6 +7,8 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.LocaleList
 import android.view.View
+import android.widget.Toast
+import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.my_toolbar.*
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +21,7 @@ import qoi.myhealth.Ble.C18.Model.*
 import qoi.myhealth.Controller.Util.AppStatusCheck
 import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.R
+import qoi.myhealth.View.Activity.Setting.Fragment.AppSettingFragment
 import java.util.*
 
 class MainActivity: BaseActivity(){
@@ -59,87 +62,17 @@ class MainActivity: BaseActivity(){
     }
 
     override fun attachBaseContext(base: Context) {
-        //val locale = Locale.ENGLISH
-        val locale = Locale.getDefault()
+        var locale = Locale.getDefault()
+        val lang =  ShareDataManager.getScanData().language
+        when(lang){
+            0->locale = Locale.getDefault()
+            1->locale = Locale.ENGLISH
+            else->locale = Locale.getDefault()
+        }
         Locale.setDefault(locale)
         val config = Configuration()
         config.setLocales(LocaleList(locale))
         super.attachBaseContext(base.createConfigurationContext(config))
-    }
-
-
-    fun syncHealthDataTest() {
-        bleManager.deviceDelegate!!.syncHealthData { bleResult, map ->  }
-    }
-    fun ECGModeTest(){
-        (bleManager.deviceDelegate as C18Delegate).beginECGTest(true) { bleResult, info ->
-        }
-    }
-
-    fun mainThemeTest(){
-        (bleManager.deviceDelegate as C18Delegate).getDeviceTheme { bleResult, info ->
-            val themeType = info!!.get(BleIdentificationKey.C18_MainThemeInfo) as C18_Theme_Type
-            println(themeType)
-        }
-    }
-
-    fun deviceMacInfoTest(){
-        (bleManager.deviceDelegate as C18Delegate).getDeviceMac { bleResult, info ->
-            val deviceName = info!!.get(BleIdentificationKey.C18_DeviceMacInfo) as String
-            println(deviceName)
-        }
-    }
-
-    fun deviceNameInfoTest(){
-        (bleManager.deviceDelegate as C18Delegate).getDeviceName { bleResult, info ->
-            GlobalScope.launch(Dispatchers.Main) {
-                val deviceName = info!!.get(BleIdentificationKey.C18_DeviceNameInfo) as String
-                println("デバイス名"+deviceName)
-            }
-        }
-    }
-    fun userSetInfoTest(){
-        (bleManager.deviceDelegate as C18Delegate).getUserSetInfo { bleResult, info ->
-            val userSetInfo:C18_UserSettingInfo = info!!.get(BleIdentificationKey.C18_UserSetInfo) as C18_UserSettingInfo
-            ShareDataManager.saveUserSetInfo(userSetInfo)
-            println("明るさ設定；"+ShareDataManager.getUserSetInfo()?.screenBright)
-        }
-    }
-    fun alarmTimeAdd(){
-        val alarmTime = C18_AlarmTime(C18_AlarmTime_Type.WakeUp,0x0au,0x05u,0x00u,0x01u)
-        (bleManager.deviceDelegate as C18Delegate).settingAddAlarmTime(alarmTime) { bleResult, info ->
-                    println(info)
-        }
-    }
-
-    fun alarmTimeDel(alarmTime: C18_AlarmTime){
-
-        (bleManager.deviceDelegate as C18Delegate).settingDelAlarmTime(alarmTime) { bleResult, info ->
-            println(info)
-        }
-    }
-
-    fun supportTest(){
-        (bleManager.deviceDelegate as C18Delegate).getDevSupport  { bleResult, info ->
-            val supportInfo = info!!.get(BleIdentificationKey.C18_SupportInfo) as C18_DeviceSupportInfo
-            println(supportInfo.isSupport_findDev)
-        }
-    }
-
-    fun switchStatusTest(){
-        (bleManager.deviceDelegate as C18Delegate).getSwitchStatus { bleResult, info ->
-            val supportInfo = info!!.get(BleIdentificationKey.C18_SwitchStatusInfo) as C18_SwitchStatusInfo
-            println(supportInfo.heart_Switch)
-        }
-    }
-    fun tryToConnectDevice(){
-        val deviceMac = ShareDataManager.getConnectionDeviceMac()
-        if (deviceMac != null){
-            bleManager.retrieveDevice(this, deviceMac)
-        }
-        else{
-            ShareDataManager.saveConnectType(null)
-        }
     }
 
     override fun onBleDeviceConnection() {
@@ -148,9 +81,32 @@ class MainActivity: BaseActivity(){
     override fun onBleDeviceDisConnection() {
     }
 
+    fun reload(){
+        finish()
+        overridePendingTransition(0, 0)
+        startActivity(getIntent())
+        overridePendingTransition(0, 0)
+        Toast.makeText(this, "言語を変更しました", Toast.LENGTH_LONG).show()
+    }
 
     fun setNavi(id: Int){
         bottom_navigation.selectedItemId = id
     }
 
+    // 読み取り後に呼ばれるメソッド
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        // 結果の取得
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            when(bottom_navigation.selectedItemId){
+                R.id.user->{
+                    AppSettingFragment.createInstance().setKeyView(result.contents)
+                }
+            }
+
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
 }
