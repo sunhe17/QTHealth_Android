@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import qoi.myhealth.Ble.C18.C18Delegate
+import qoi.myhealth.Ble.C18.DeviceConnectData
 import qoi.myhealth.Ble.Extension.toHexString
 import qoi.myhealth.Ble.Spo2.Spo2Delegate
 import qoi.myhealth.Manager.ShareDataManager
@@ -105,6 +106,7 @@ object BleManager {
 
                 ServiceUUID.C18_kWrite1.uuid -> {
                     ShareDataManager.saveConnectedDeviceMac(mGatt!!.device.address)
+                    ShareDataManager.saveConnectType("C18")
                     deviceDelegate = C18Delegate(mGatt!!)
                     bleDelegate?.onBleDeviceConnection()
                     return
@@ -124,6 +126,7 @@ object BleManager {
 
                 ServiceUUID.SPO2_kRead2.uuid -> {
                     ShareDataManager.saveConnectedDeviceMac(mGatt!!.device.address)
+                    ShareDataManager.saveConnectType("SPO2")
                     deviceDelegate = Spo2Delegate(mGatt!!)
                     deviceDelegate!!.deviceInit(null)
                     bleDelegate?.onBleDeviceConnection()
@@ -187,7 +190,11 @@ object BleManager {
 
     //デバイス切断
     fun disconnectToDevice(){
-        mGatt!!.disconnect();
+        mGatt!!.disconnect()
+        mGatt!!.close()
+        deviceDelegate = null
+        ShareDataManager.saveConnectedDeviceMac(null)
+        ShareDataManager.saveConnectType(null)
     }
 
 }

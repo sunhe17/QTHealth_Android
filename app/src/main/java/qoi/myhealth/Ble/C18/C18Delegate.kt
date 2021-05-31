@@ -6,7 +6,9 @@ import android.util.Log
 import qoi.myhealth.Ble.*
 import qoi.myhealth.Ble.C18.CMD.*
 import qoi.myhealth.Ble.C18.Model.C18_AlarmTime
+import qoi.myhealth.Ble.C18.Model.C18_LongSite
 import qoi.myhealth.Ble.C18.Model.C18_SleepInfo
+import qoi.myhealth.Ble.C18.Model.C18_UserSettingInfo
 import qoi.myhealth.Ble.model.UserInfo
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -106,7 +108,7 @@ class C18Delegate(mGatt: BluetoothGatt) :
                 val tKey = C18_Setting_Key.getKey(tKey)
                 when (tKey) {
                     C18_Setting_Key.Time,C18_Setting_Key.Antilose,C18_Setting_Key.UserInfo,C18_Setting_Key.LongSite,C18_Setting_Key.DisplayBright,
-                    C18_Setting_Key.RaiseScreen,C18_Setting_Key.HeartAlarm,C18_Setting_Key.HeartAutoMode,C18_Setting_Key.ReSet,C18_Setting_Key.Language,C18_Setting_Key.HandWear,
+                    C18_Setting_Key.RaiseScreen,C18_Setting_Key.HeartAlarm,C18_Setting_Key.HeartAutoMode,C18_Setting_Key.TEMP,C18_Setting_Key.ReSet,C18_Setting_Key.Language,C18_Setting_Key.HandWear,
                     C18_Setting_Key.BloodRange,C18_Setting_Key.MainTheme,C18_Setting_Key.SkinColor,C18_Setting_Key.SleepMode-> {
                         val subData = buffData.array().copyOfRange(tOffset,tOffset + (tDataLen - 6))
                         val result = C18Hepler.dealAckCode(subData)
@@ -392,6 +394,14 @@ class C18Delegate(mGatt: BluetoothGatt) :
     fun settingUserInfo(userInfo: UserInfo,sendCallback: SendCallBack?) {
         val optionData = C18SettingCMD.getUserInfoSettingModel(userInfo.height.toUByte(),userInfo.weight.toUByte(),userInfo.gender.toUByte(),userInfo.age.toUByte())
         val sendPacket = QOISendPacket(QOI_CMD_TYPE.CMD_Setting,C18_Setting_Key.UserInfo.vl,optionData)
+        sendPacket.sendCallBack = sendCallback
+        pushTask(sendPacket)
+    }
+
+    // 座り過ぎ情報設定
+    fun settingLongSite(longSite: C18_LongSite,sendCallback: SendCallBack?){
+        val optionData = C18SettingCMD.getLongSiteSettingModel(longSite)
+        val sendPacket = QOISendPacket(QOI_CMD_TYPE.CMD_Setting,C18_Setting_Key.LongSite.vl,optionData)
         sendPacket.sendCallBack = sendCallback
         pushTask(sendPacket)
     }

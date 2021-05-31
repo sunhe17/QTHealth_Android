@@ -1,12 +1,40 @@
 <resources>
     <string name="app_name">MyHealth</string>
-    <string name="title_activity_scan_device">ScanDeviceActivity</string>
+    <string name="button">Button</string>
+    <string name="item1">item1</string>
+    <string name="item2">item2</string>
+    <string name="item3">item3</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!--共通-->
+    <string name="edit">編集</string>
+    <string name="save">保存</string>
+
+    <!--アプリ設定-->
+    <string name="appSetting_Title">個人設定</string>
+    <string name="appSetting_AccessKeyStatus">アクセスキー認証状態</string>
+    <string name="appSetting_AccessKeyAuthe">アクセスキー認証</string>
+    <string name="appSetting_PersonalInfo">個人設定</string>
+    <string name="appSetting_StepGoal">歩数目標設定</string>
+    <string name="appSetteing_SleepGoal">睡眠目標設定</string>
+    <string name="appSetteing_Language">言語設定</string>
+    <string name="appSetting_AppInfo">アプリについて</string>
+
+    <!--個人情報設定-->
+    <string name="mySetting_Title">個人情報設定</string>
+    <string name="mySetting_Nickname">ニックネーム</string>
+    <string name="mySetting_Birth">生年月日</string>
+    <string name="mySetting_Sex">性別</string>
+    <string name="mySetting_Height">身長</string>
+    <string name="mySetting_Weight">体重</string>
+    <string name="mySetting_SkinColor">肌の色</string>
+    <string name="mySetting_BP">血圧</string>
+    <string name="mySetting_BloodStatus_Low">低い</string>
+    <string name="mySetting_BloodStatus_Normal">普通</string>
+    <string name="mySetting_BloosStatus_LittleHigher">少々高い</string>
+    <string name="mySetting_BloodStatus_High">高め</string>
+    <string name="mySetting_Status_VeryHigh">かなり高い</string>
+    <string name="mySetting_Man">男性</string>
+    <string name="mySetting_Woman">女性</string>
+
 </resources>

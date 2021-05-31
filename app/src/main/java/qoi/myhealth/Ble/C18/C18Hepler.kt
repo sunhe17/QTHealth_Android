@@ -94,6 +94,7 @@ object C18Hepler {
                         tAlarmRepeat = buff.get(offset).toUByte()
                         offset += 1
                         tAlarmDelayTime = buff.get(offset).toUByte()
+                        offset += 1
 
                         val alarmTime = C18_AlarmTime(C18_AlarmTime_Type.getKey(tAlarmType),tAlarmHour,tAlarmMin,tAlarmRepeat,tAlarmDelayTime)
                         alarmTimeArr.add(alarmTime)
@@ -301,7 +302,9 @@ object C18Hepler {
         val longSiteInfo = C18_LongSite(tLongSite_start_timeHour1,tLongSite_start_timeMin1,tLongSite_end_timeHour1,tLongSite_end_timeMin1,tLongSite_start_timeHour2,tLongSite_start_timeMin2,tLongSite_end_timeHour2,tLongSite_end_timeMin2)
         longSiteInfo.interval = tLongSite_interval
         longSiteInfo.setRepeater(tLongSite_repeat)
+        val sleepInfo = C18_SleepInfo(tSleepMode_switch.toBool(),tSleepMode_startTimeHour.toInt(),tSleepMode_startTimeMin.toInt(),tSleepMode_endTimeHour.toInt(),tSleepMode_endTimeMin.toInt())
         val userSetInfo = C18_UserSettingInfo
+        userSetInfo.sleepInfo = sleepInfo
         userSetInfo.tagetInfo = tagetInfo
         userSetInfo.userInfo = userInfo
         userSetInfo.unitInfo = unitInfo
@@ -314,6 +317,7 @@ object C18Hepler {
         userSetInfo.os_lang = C18_OS_Language.getKey(tOther2_lang)
         userSetInfo.raiseDisplay = tOther2_raiseDisplay.toBool()
         userSetInfo.screenBright = tOther2_screenBright.toInt()
+        userSetInfo.loss_switch = tLoseAlert_mode.toInt() != 0
 
         return mapOf(BleIdentificationKey.C18_UserSetInfo to userSetInfo)
     }

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.Activity.C18.LongSiteFragment">
+
+
+    <LinearLayout
+        android:layout_width="417dp"
+        android:layout_height="237dp"
+        android:layout_marginTop="76dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp">
+
+        <RelativeLayout
+            android:id="@+id/notification"
+            android:layout_width="410dp"
+            android:layout_height="61dp"
+            android:background="@drawable/partsdesign"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp">
+
+            <TextView
+                android:layout_width="172dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="24dp"
+                android:layout_toStartOf="@+id/notificationVal"
+                android:gravity="center_vertical"
+                android:text="座り過ぎアラート通知" />
+
+            <Switch
+                android:id="@+id/notificationVal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="135dp"
+                android:gravity="center"
+                tools:layout_editor_absoluteY="10dp" />
+        </RelativeLayout>
+
+        <!--チェック間隔-->
+        <RelativeLayout
+            android:id="@+id/checkInterval"
+            android:layout_width="410dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/partsdesign"
+            app:layout_constraintTop_toBottomOf="@+id/notification"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp">
+
+            <TextView
+                android:layout_width="153dp"
+                android:layout_height="61dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="42dp"
+                android:layout_toStartOf="@+id/checkIntervalContents"
+                android:gravity="center_vertical"
+                android:text="チェック間隔"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkIntervalContents"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/checkIntervalContents"
+                android:layout_width="140dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="42dp"
+                android:gravity="center_vertical"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RelativeLayout>
+
+        <!--繰り返し曜日-->
+        <RelativeLayout
+            android:id="@+id/weekLoop"
+            android:layout_width="410dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/partsdesign"
+            app:layout_constraintTop_toBottomOf="@+id/checkIntervaln"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp">
+
+            <TextView
+                android:layout_width="153dp"
+                android:layout_height="61dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="42dp"
+                android:layout_toStartOf="@+id/weekLoopVal"
+                android:gravity="center_vertical"
+                android:text="繰り返し"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/weekLoopVal"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/weekLoopVal"
+                android:layout_width="140dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="42dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="368dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <!--時間1-->
+        <RelativeLayout
+            android:id="@+id/time1"
+            android:layout_width="410dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/partsdesign"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp">
+
+            <TextView
+                android:id="@+id/start_name1"
+                android:layout_width="63dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="3dp"
+                android:layout_toStartOf="@+id/start_time1"
+                android:gravity="center_vertical"
+                android:text="開始"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/start_time1"
+                android:layout_width="102dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="235dp"
+                android:gravity="center_vertical"
+                android:text="開始"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/end_name1"
+                android:layout_width="68dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="-175dp"
+                android:layout_toStartOf="@+id/start_time1"
+                android:gravity="center_vertical"
+                android:text="終了"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/end_time1"
+                android:layout_width="89dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="56dp"
+                android:gravity="center_vertical"
+                android:text="終了11"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+        </RelativeLayout>
+
+
+        <!--時間1-->
+        <RelativeLayout
+            android:id="@+id/time2"
+            android:layout_width="410dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/partsdesign"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp">
+
+            <TextView
+                android:id="@+id/start_name2"
+                android:layout_width="63dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="3dp"
+                android:layout_toStartOf="@+id/start_time2"
+                android:gravity="center_vertical"
+                android:text="開始"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/start_time2"
+                android:layout_width="102dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="235dp"
+                android:gravity="center_vertical"
+                android:text="開始"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/end_name2"
+                android:layout_width="68dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="-175dp"
+                android:layout_toStartOf="@+id/start_time2"
+                android:gravity="center_vertical"
+                android:text="終了"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <TextView
+                android:id="@+id/end_time2"
+                android:layout_width="89dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="56dp"
+                android:gravity="center_vertical"
+                android:text="終了22"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

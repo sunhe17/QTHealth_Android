@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <RadioGroup
+            android:id="@+id/radio_skin"
+            android:layout_width="211dp"
+            android:layout_height="282dp"
+            android:translationX="50dp"
+            android:translationY="10dp">
+
+            <RadioButton
+                android:id="@+id/radio_white"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/partsdesign" />
+
+            <RadioButton
+                android:id="@+id/radio_flesh"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/partsdesign" />
+
+            <RadioButton
+                android:id="@+id/radio_light_brown"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/partsdesign" />
+
+            <RadioButton
+                android:id="@+id/radio_brown"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/partsdesign" />
+
+            <RadioButton
+                android:id="@+id/radio_dark_brown"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/partsdesign" />
+
+            <RadioButton
+                android:id="@+id/radio_brack"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/partsdesign" />
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/skin_white"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_white"
+            android:translationX="200dp"
+            android:translationY="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/skin_flesh"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_flesh"
+            android:translationX="200dp"
+            android:translationY="65dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/skin_light_brown"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_light_brown"
+            android:translationX="200dp"
+            android:translationY="105dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/skin_brown"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_brown"
+            android:translationX="200dp"
+            android:translationY="146dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/skin_dark_brown"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_dark_brown"
+            android:translationX="200dp"
+            android:translationY="190dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/skin_brack"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="start"
+            android:src="@drawable/skin_brack"
+            android:translationX="200dp"
+            android:translationY="230dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

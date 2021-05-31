@@ -1,5 +1,7 @@
 package qoi.myhealth.Ble.C18.Model
 
+import qoi.myhealth.Ble.C18.QOI_CMD_TYPE
+
 class C18_LongSite(_start_timeHour_1 : UByte = 0u,_start_timeMin_1:UByte = 0u,_end_timeHour_1:UByte = 0u,_end_timeMin_1:UByte = 0u,
                    _start_timeHour_2 : UByte = 0u,_start_timeMin_2:UByte = 0u,_end_timeHour_2:UByte = 0u,_end_timeMin_2:UByte = 0u) {
 
@@ -15,6 +17,9 @@ class C18_LongSite(_start_timeHour_1 : UByte = 0u,_start_timeMin_1:UByte = 0u,_e
     private var repeater : UByte = 0u
     private var isOpen : Boolean = false
     private var week : Array<Boolean>? = null           //[月、火、水、木、金、土、日]
+    private val weekList = arrayOf("月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日")
+    private val intervalList:Array<String> = arrayOf("15Min","30Min","45Min")
+    private val intervalByteList:Array<UByte> = arrayOf(15U,30U,45U,60U)
 
     init {
         this.week = arrayOf(false,false,false,false,false,false,false)
@@ -38,6 +43,30 @@ class C18_LongSite(_start_timeHour_1 : UByte = 0u,_start_timeMin_1:UByte = 0u,_e
         this.dealRepeater()
     }
 
+    fun getWeekList():Array<String>{
+        return weekList
+    }
+
+    fun getIntervalList():Array<String>{
+        return intervalList
+    }
+
+    fun getIntervalByteList():Array<UByte>{
+        return intervalByteList
+    }
+
+    fun setIsOpen(flg:Boolean){
+        var data = this.repeater.toInt()
+        if(flg) data += 128 else data -= 128
+        this.repeater = data.toUByte()
+        this.isOpen = flg
+    }
+
+    fun setWeek(data:Array<Boolean>){
+        this.week = data
+        this.dealWeekIsOpen()
+    }
+
     private fun dealRepeater(){
         this.week = arrayOf(false,false,false,false,false,false,false)
         repeat(this.week!!.size) {
@@ -46,7 +75,7 @@ class C18_LongSite(_start_timeHour_1 : UByte = 0u,_start_timeMin_1:UByte = 0u,_e
         this.isOpen = ((this.repeater.toInt() shr 7) and 1) != 0
     }
 
-    private fun dealWeekIsOpen(){
+    fun dealWeekIsOpen(){
         var tValue:UByte = 0x00u
         repeat(this.week!!.size){
             if (this.week!![it]){
@@ -56,7 +85,10 @@ class C18_LongSite(_start_timeHour_1 : UByte = 0u,_start_timeMin_1:UByte = 0u,_e
         if (this.isOpen) {
             tValue = tValue or (1 shl 7).toUByte()
         }
+        println(this.repeater)
         this.repeater = tValue
+        println(this.repeater)
     }
+
 
 }

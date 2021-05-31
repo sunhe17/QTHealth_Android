@@ -1,5 +1,7 @@
 package qoi.myhealth.Ble.C18.Model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import qoi.myhealth.Ble.C18.CMD.C18_HealthData_Key
 
 enum class C18_AlarmTime_Type(val vl:UByte) {
@@ -28,7 +30,8 @@ enum class C18_AlarmTime_Action(val vl:UByte) {
     }
 }
 
-class C18_AlarmTime(){
+@Parcelize
+class C18_AlarmTime() : Parcelable {
 
     var alarmtimeType:UByte = 0x00u     //0x00~0x07
     var hour:UByte = 0x00u              // 0-23
@@ -56,6 +59,18 @@ class C18_AlarmTime(){
         this.week = week
         this.snoozeInterval = snoozeInterval
         this.dealWeekIsOpen()
+    }
+
+    fun setWeekData(data:Array<Boolean>){
+        this.week = data
+        this.dealWeekIsOpen()
+    }
+
+    fun setIsOpen(flg:Boolean){
+        var data = this.repeater.toInt()
+        if(flg) data += 128 else data -= 128
+        this.repeater = data.toUByte()
+        this.isOpen = flg
     }
 
     private fun dealRepeater(){

@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "qoi.myhealth"
-        minSdkVersion 23
+        minSdkVersion 25
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -22,12 +22,43 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "myType"
+    productFlavors {
+        development {
+            dimension "myType"
+            setApplicationId("qoi.myhealth")
+            manifestPlaceholders = [appName:"開発"]
+            buildConfigField "boolean", "DEVELOPMENT_MODE", "true"
+        }
+        preproduction {
+            dimension "myType"
+            setApplicationId("qoi.myhealth")
+            manifestPlaceholders = [appName:"プレ"]
+            buildConfigField "boolean", "DEVELOPMENT_MODE", "true"
+        }
+        production {
+            dimension "myType"
+            setApplicationId("qoi.myhealth")
+            manifestPlaceholders = [appName:"デベロップ"]
+            buildConfigField "boolean", "DEVELOPMENT_MODE", "false"
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/res/setting',
+                    'src/main/res/c18',
+                    'src/main/res/spo2',
+            ]
+        }
     }
 }
 
@@ -40,9 +71,16 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
+
+    def nav_version = '2.0.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
 }

@@ -34,5 +34,8 @@ object C18_UserSettingInfo {
     var os_lang:C18_OS_Language = C18_OS_Language.JP_LAN        //言語
     var raiseDisplay:Boolean = false            //腕を上げてスリープ解除スイッチ
     var screenBright:Int = 0                    //画面の明るさ
+    var loss_switch = false                     // 紛失防止設定
+
+
 
 }

@@ -2,6 +2,8 @@ package qoi.myhealth.Ble.C18.CMD
 
 import qoi.myhealth.Ble.C18.Model.C18_AlarmTime
 import qoi.myhealth.Ble.C18.Model.C18_AlarmTime_Action
+import qoi.myhealth.Ble.C18.Model.C18_AlarmTime_Type
+import qoi.myhealth.Ble.C18.Model.C18_LongSite
 import qoi.myhealth.Ble.Extension.toUBytes
 import java.util.*
 
@@ -26,7 +28,8 @@ enum class C18_Setting_Key(val vl: UByte) {
     DisplayBright(0x14u),
     SkinColor(0x15u),
     BloodRange(0x16u),
-    MainTheme(0x19u);
+    MainTheme(0x19u),
+    TEMP(0x20u);
 
     companion object {
         fun getKey(vl:UByte): C18_Setting_Key? = C18_Setting_Key.values().find { it.vl == vl }?: null
@@ -115,7 +118,7 @@ object C18SettingCMD {
     */
     fun getAntiLostSettingModel(open:Boolean) : UByteArray {
         var data = ubyteArrayOf()
-        val openByte = if(open) 1 else 0
+        val openByte = if(open) 2 else 0
         data += openByte.toUByte()      //1byte
         return data
     }
@@ -173,6 +176,38 @@ object C18SettingCMD {
     }
 
     /*
+    座り過ぎアラート設定
+    start_timeHour_1:
+    start_timeMin_1 :
+    end_timeHour_1  :
+    end_timeMin_1   :
+    start_timeHour_2:
+    start_timeMin_2 :
+    end_timeHour_2  :
+    end_timeMin_2   :
+    interval        :
+    repeater        :
+    isOpen          :
+    week            :
+    */
+    fun getLongSiteSettingModel(longSite:C18_LongSite): UByteArray{
+
+        var data = ubyteArrayOf()
+        data += longSite.start_timeHour_1
+        data += longSite.start_timeMin_1
+        data += longSite.end_timeHour_1
+        data += longSite.end_timeMin_1
+        data += longSite.start_timeHour_2
+        data += longSite.start_timeMin_2
+        data += longSite.end_timeHour_2
+        data += longSite.end_timeMin_2
+        data += longSite.interval
+        data += longSite.getRepeater()
+
+        return data
+    }
+
+    /*
      出荷状態回復設定
      cmd1:UByte 固定値
      cmd2:UByte 固定値
@@ -180,7 +215,7 @@ object C18SettingCMD {
      cmd4:UByte 固定値
     */
     fun getReSettingModel() : UByteArray {
-        var data = ubyteArrayOf(0x53u,0x53u,0x59u,0x53u)
+        var data = ubyteArrayOf(0x52u,0x53u,0x59u,0x53u)
         return data
     }
 
@@ -280,8 +315,13 @@ object C18SettingCMD {
     fun chanageAlarmTimeSetting(oldAlarmTime: C18_AlarmTime,newAlarmModel: C18_AlarmTime) : UByteArray {
         var data = ubyteArrayOf()
         data += C18_AlarmTime_Action.Change.vl       //アラート設定の変更CMDの固定値
-        data += this.delAlarmTimeSetting(oldAlarmTime)
-        data += this.addAlarmTimeSetting(newAlarmModel)
+        data += oldAlarmTime.hour
+        data += oldAlarmTime.minute
+        data += C18_AlarmTime_Type.WakeUp.vl
+        data += newAlarmModel.hour
+        data += newAlarmModel.minute
+        data += newAlarmModel.repeater
+        data += newAlarmModel.snoozeInterval
         return data
     }
 

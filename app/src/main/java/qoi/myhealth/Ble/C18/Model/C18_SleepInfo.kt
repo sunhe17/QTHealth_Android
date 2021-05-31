@@ -4,6 +4,6 @@ class C18_SleepInfo(_isOpen:Boolean = false,_start_timeHour:Int = 0,_start_timeM
     var isOpen = _isOpen
     var start_timeHour = _start_timeHour
     var start_timeMin  = _start_timeMin
-    var end_timeHour   = _start_timeHour
-    var end_timeMin    = _start_timeMin
+    var end_timeHour   = _end_timeHour
+    var end_timeMin    = _end_timeMin
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyHealth</string>
+    <string name="button">Button</string>
+    <string name="item1">item1</string>
+    <string name="item2">item2</string>
+    <string name="item3">item3</string>
+
+    <!--共通-->
+    <string name="edit">Edit</string>
+    <string name="save">保存</string>
+
+    <!--アプリ設定-->
+    <string name="appSetting_Title">Personal Setting</string>
+    <string name="appSetting_AccessKeyStatus">AccessKey AuthC Status</string>
+    <string name="appSetting_AccessKeyAuthe">AccessKey AuthC Status</string>
+    <string name="appSetting_PersonalInfo">Personal Setting</string>
+    <string name="appSetting_StepGoal">Step Goal Setteing</string>
+    <string name="appSetteing_SleepGoal">Sleep Goal Setting</string>
+    <string name="appSetteing_Language">Language Setting</string>
+    <string name="appSetting_AppInfo">About The App</string>
+
+    <!--個人情報設定-->
+    <string name="mySetting_Title">Personal Information</string>
+    <string name="mySetting_Nickname">Nickname</string>
+    <string name="mySetting_Birth">Birthday</string>
+    <string name="mySetting_Sex">Gender</string>
+    <string name="mySetting_Height">Height</string>
+    <string name="mySetting_Weight">BodyWeight</string>
+    <string name="mySetting_SkinColor">SkinColor</string>
+    <string name="mySetting_BP">BP</string>
+    <string name="mySetting_BloodStatus_Low">Low</string>
+    <string name="mySetting_BloodStatus_Normal">Normal</string>
+    <string name="mySetting_BloosStatus_LittleHigher">LittleHigher</string>
+    <string name="mySetting_BloodStatus_High">High</string>
+    <string name="mySetting_Status_VeryHigh">VeryHigh</string>
+    <string name="mySetting_Man">Man</string>
+    <string name="mySetting_Woman">Woman</string>
+
+
+</resources>
