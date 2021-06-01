@@ -86,6 +86,7 @@ class UserSettingFragment: Fragment() {
 
     private fun edit(){
         val maActivity = activity as MainActivity?
+        println("a")
 
         maActivity?.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
         maActivity?.getSupportActionBar()?.setCustomView(R.layout.my_toolbar)
