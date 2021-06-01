@@ -12,11 +12,13 @@ import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
+import qoi.myhealth.API.APIManager
 import qoi.myhealth.Ble.C18.SettingDialog.InputDialog
 import qoi.myhealth.Ble.C18.SettingDialog.dataPickreDialog
 import qoi.myhealth.Ble.C18.SettingDialog.makeViewDialog
 import qoi.myhealth.Ble.C18.SettingDialog.pickerDialog
 import qoi.myhealth.Ble.model.LocalUserInfo
+import qoi.myhealth.Controller.Util.Progress
 import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.R
 import qoi.myhealth.View.Activity.C18.TimeAlertFragment
@@ -26,7 +28,7 @@ import java.time.Period
 
 class UserSettingFragment: Fragment() {
 
-    var appUserInfo: LocalUserInfo = ShareDataManager.getAppUserInfo()
+    private var appUserInfo: LocalUserInfo = ShareDataManager.getAppUserInfo()
 
     private var group: ViewGroup? = null
 
@@ -71,6 +73,7 @@ class UserSettingFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+        appUserInfo = ShareDataManager.getAppUserInfo()
         init()
         setting()
 
@@ -100,8 +103,12 @@ class UserSettingFragment: Fragment() {
         saveBtn.visibility = View.VISIBLE
         saveBtn.setText(getString(R.string.save))
         saveBtn.setOnClickListener {
-            saveAppInfoDat()
-            maActivity!!.setNavi(R.id.user)
+            Progress.getInstance().showDialog(group!!.context,"保存中")
+            APIManager.getInstance().setUserInfo(group!!.context,appUserInfo.birth,appUserInfo.gender.toString(),appUserInfo.height.toString(),appUserInfo.wight.toString()){ it->
+                if(it == APIManager.getInstance().OK){saveAppInfoDat()}
+                maActivity!!.setNavi(R.id.user)
+                Progress.getInstance().closeDialog()
+            }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
@@ -195,6 +202,9 @@ class UserSettingFragment: Fragment() {
         // 身長
         val lengthView = view!!.findViewById(qoi.myhealth.R.id.length) as RelativeLayout
         var lengthList: Array<String> = arrayOf()
+        for (i in 100..200){
+            lengthList += "" + i + "cm"
+        }
 
         lengthView.setOnClickListener {
             pickerDialog(group!!.context, getString(R.string.mySetting_Height), lengthList, "" + appUserInfo.height + "cm") { num ->
@@ -213,7 +223,7 @@ class UserSettingFragment: Fragment() {
         wightView.setOnClickListener {
             pickerDialog(group!!.context, getString(R.string.mySetting_Weight), wightList, "" + appUserInfo.wight + "kg") { num ->
                 wightText!!.text = wightList[num]
-                val data: Int = wightList[num].replace("cm", "").toInt()
+                val data: Int = wightList[num].replace("kg", "").toInt()
                 appUserInfo.wight = data
             }
         }

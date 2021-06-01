@@ -33,7 +33,7 @@ class MainActivity: BaseActivity(){
         setContentView(R.layout.activity_main)
 
         // 仮で強制的に未接続にする　TODO テストのみ使用
-        //ShareDataManager.saveConnectType(null)
+        ShareDataManager.saveConnectType(null)
 
         // 初回起動か確認
         if(AppStatusCheck.isFirstJudgment(this)){

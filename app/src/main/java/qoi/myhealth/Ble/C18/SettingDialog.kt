@@ -202,7 +202,7 @@ object SettingDialog {
             context,
             DatePickerDialog.OnDateSetListener() { view, year, month, dayOfMonth->
                 println("選択した日付は「${year}/${month + 1}/${dayOfMonth}」です")
-                method1(year,month,dayOfMonth)
+                method1(year,(month + 1),dayOfMonth)
             },
             2020,
             3,

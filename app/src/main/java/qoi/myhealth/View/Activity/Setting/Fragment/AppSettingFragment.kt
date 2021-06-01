@@ -1,14 +1,7 @@
 package qoi.myhealth.View.Activity.Setting.Fragment
 
-import android.app.ProgressDialog
-import android.content.Context
-import android.content.Intent
-import android.content.Intent.getIntent
-import android.content.res.Configuration
 import android.os.Bundle
-import android.os.LocaleList
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -17,23 +10,16 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.zxing.integration.android.IntentIntegrator
-import kotlinx.android.synthetic.main.activity_access_key.*
-import kotlinx.android.synthetic.main.fragment_appsetting.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import qoi.myhealth.API.APIBase
-import qoi.myhealth.Ble.BleDelegate
+import qoi.myhealth.API.APIManager
 import qoi.myhealth.Ble.C18.SettingDialog.InputDialog
 import qoi.myhealth.Ble.C18.SettingDialog.pickerDialog
-import qoi.myhealth.Controller.Util.Progress
 import qoi.myhealth.Manager.ShareDataManager
 import qoi.myhealth.R
-import qoi.myhealth.View.Activity.C18.LongSiteFragment
 import qoi.myhealth.View.Activity.Setting.MainActivity
 import qoi.myhealth.View.Activity.Setting.MyCaptureActivity
-import qoi.myhealth.View.Activity.Setting.UserSettingActivity
-import java.util.*
 
 class AppSettingFragment:Fragment() {
     private var group: ViewGroup? = null
@@ -165,9 +151,9 @@ class AppSettingFragment:Fragment() {
         val accessKeyEditButton = view!!.findViewById<View>(R.id.access_key_btn) as Button
         accessKeyEditButton.setOnClickListener {
             accessKeyDialog("キー編集", userAuthInfo.key) { it ->
-                APIBase.getInstance().getAuthToken(it){ code, token->
+                APIManager.getInstance().getAuthToken(it){ code, token->
                     GlobalScope.launch(Dispatchers.Main){
-                        if(code ==  APIBase.getInstance().OK){
+                        if(code ==  APIManager.getInstance().OK){
                             userAuthInfo.key = it
                             userAuthInfo.auth = true
                             ShareDataManager.saveScanData(userAuthInfo)
@@ -285,9 +271,5 @@ class AppSettingFragment:Fragment() {
         val text = dialogView!!.findViewById<EditText>(R.id.access_key_value)
         val replaceData = data.replace("QOI://?access=","")
         text.setText(replaceData)
-    }
-
-    fun getLangauge(): Int{
-        return userAuthInfo.language
     }
 }
