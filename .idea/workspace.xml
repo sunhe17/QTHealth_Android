@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a33136ba-6d1c-4044-8c2e-fdf072da18db" name="Default Changelist" comment="test">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/qoi/myhealth/View/Activity/Setting/Fragment/UserSettingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/qoi/myhealth/View/Activity/Setting/Fragment/UserSettingFragment.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[357982103069249]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Enum" />
+        <option value="Class" />
+        <option value="resourceFile" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="app_base" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/sunhe17/QTHealth_Android.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1qpDF2bcxsirIC5jXNIHXopvbAy" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ApkExportedModule" value="MyHealth.app" />
+    <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="7badade1" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-31T06:32:59.979Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewC:/Users/DEV2105/AppData/Local/Android/Sdk/sources/android-29/android/widget/TextView.java_SELECTED" value="TextView" />
+    <property name="android-custom-viewC:/Users/DEV2105/AppData/Local/Android/Sdk/sources/android-30/android/widget/AdapterView.java_SELECTED" value="AdapterView" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout/setting" />
+    <property name="multi-representation-previewC:/Users/DEV2105/AppData/Local/Android/Sdk/sources/android-29/android/widget/TextView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/DEV2105/AppData/Local/Android/Sdk/sources/android-30/android/widget/AdapterView.java_selected" value="Custom views" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="qoi.myhealth.View.Activity.Setting.Fragment" />
+      <recent name="qoi.myhealth.View.Activity.Setting" />
+      <recent name="qoi.myhealth.Controller.Util" />
+      <recent name="qoi.myhealth" />
+      <recent name="qoi.myhealth.Setting" />
+    </key>
+    <key name="android.template.97549159">
+      <recent name="qoi.myhealth" />
+    </key>
+    <key name="android.template.-1561139751">
+      <recent name="qoi.myhealth" />
+    </key>
+    <key name="android.template.-1782608814">
+      <recent name="qoi.myhealth" />
+    </key>
+    <key name="android.template.402226530">
+      <recent name="qoi.myhealth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DEV2105\AndroidStudioProjects\QTHealth_Android\app\src\main\res\layout" />
+      <recent name="C:\Users\DEV2105\AndroidStudioProjects\QTHealth_Android\app\src\main\res\setting\layout" />
+      <recent name="C:\Users\DEV2105\AndroidStudioProjects\QTHealth_Android\app\src\main\res\drawable" />
+      <recent name="C:\Users\DEV2105\AndroidStudioProjects\QTHealth_Android\app\src\main\res\spo2" />
+      <recent name="C:\Users\DEV2105\AndroidStudioProjects\QTHealth_Android\app\src\main\res\layouts\spo2" />
+    </key>
+    <key name="android.template.-252974980">
+      <recent name="qoi.myhealth.Activity.Setting" />
+      <recent name="qoi.myhealth" />
+    </key>
+    <key name="android.template.-596084185">
+      <recent name="qoi.myhealth" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="MyHealth.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a33136ba-6d1c-4044-8c2e-fdf072da18db" name="Default Changelist" comment="" />
+      <created>1617767530881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617767530881</updated>
+    </task>
+    <task id="LOCAL-00001" summary="test_check">
+      <created>1617952144125</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617952144126</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test_check">
+      <created>1617952341007</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617952341007</updated>
+    </task>
+    <task id="LOCAL-00003" summary="デバイステスト接続サンプル">
+      <created>1618799053820</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618799053820</updated>
+    </task>
+    <task id="LOCAL-00004" summary="デバイス設定追加">
+      <created>1622425903773</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622425903773</updated>
+    </task>
+    <task id="LOCAL-00005" summary="基本設定追加">
+      <created>1622426083008</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622426083008</updated>
+    </task>
+    <task id="LOCAL-00006" summary="認証トークンAOI追加">
+      <created>1622455211748</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622455211752</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ユーザーデータAPI追加">
+      <created>1622527685082</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622527685082</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test">
+      <created>1622528656816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622528656816</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test_check" />
+    <MESSAGE value="デバイステスト接続サンプル" />
+    <MESSAGE value="デバイス設定追加" />
+    <MESSAGE value="基本設定追加" />
+    <MESSAGE value="認証トークンAOI追加" />
+    <MESSAGE value="ユーザーデータAPI追加" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="605" y="-1062" key="#Inspections" timestamp="1620705389533">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="605" y="-1062" key="#Inspections/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1620705389533" />
+    <state x="496" y="-994" key="#PSD" timestamp="1618478886035">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="496" y="-994" key="#PSD/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1618478886035" />
+    <state x="433" y="-1085" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622424857561">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="433" y="-1085" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622424857561" />
+    <state x="750" y="-1024" key="#com.intellij.ide.util.MemberChooser" timestamp="1622438920480">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="750" y="-1024" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622438920480" />
+    <state x="579" y="-826" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1618389166744">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="579" y="-826" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1618389166744" />
+    <state x="709" y="-993" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1618481237809">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="709" y="-993" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1618481237809" />
+    <state x="758" y="-962" width="479" height="450" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1622083203864">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="758" y="-962" width="479" height="450" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622083203864" />
+    <state x="571" y="-1099" key="#プラグイン" timestamp="1622439208702">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="571" y="-1099" key="#プラグイン/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622439208702" />
+    <state x="842" y="-988" key="AndroidCreateResourceDirectoryDialog" timestamp="1622423705684">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="842" y="-988" key="AndroidCreateResourceDirectoryDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622423705684" />
+    <state x="559" y="-985" width="840" height="486" key="AndroidCreateResourceFileDialog" timestamp="1621907675960">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="559" y="-985" width="840" height="486" key="AndroidCreateResourceFileDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1621907675960" />
+    <state x="824" y="-933" key="AndroidCreateXmlResourceDialog" timestamp="1621320104246">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="824" y="-933" key="AndroidCreateXmlResourceDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1621320104246" />
+    <state x="778" y="-994" key="AndroidProcessChooserDialog" timestamp="1622437647908">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="778" y="-994" key="AndroidProcessChooserDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622437647908" />
+    <state width="581" height="673" key="DebuggerActiveHint" timestamp="1622525754026">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="581" height="673" key="DebuggerActiveHint/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622525754026" />
+    <state x="-209" y="-1348" width="2376" height="1216" key="DiffContextDialog" timestamp="1622529665619">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="-209" y="-1348" width="2376" height="1216" key="DiffContextDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622529665619" />
+    <state x="759" y="-985" key="FileChooserDialogImpl" timestamp="1622530418261">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="759" y="-985" key="FileChooserDialogImpl/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622530418261" />
+    <state x="863" y="-842" key="Github.ShareDialog" timestamp="1622530671490">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="863" y="-842" key="Github.ShareDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622530671490" />
+    <state width="2516" height="270" key="GridCell.Tab.0.bottom" timestamp="1622526950416">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.0.bottom/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950416" />
+    <state width="2516" height="270" key="GridCell.Tab.0.bottom/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="1236" height="165" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1620883697152" />
+    <state width="2516" height="270" key="GridCell.Tab.0.center" timestamp="1622526950415">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.0.center/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950415" />
+    <state width="2516" height="270" key="GridCell.Tab.0.center/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="1236" height="165" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1620883697152" />
+    <state width="2516" height="270" key="GridCell.Tab.0.left" timestamp="1622526950415">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.0.left/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950415" />
+    <state width="2516" height="270" key="GridCell.Tab.0.left/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="1236" height="165" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1620883697152" />
+    <state width="2516" height="270" key="GridCell.Tab.0.right" timestamp="1622526950415">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.0.right/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950415" />
+    <state width="2516" height="270" key="GridCell.Tab.0.right/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="1236" height="165" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1620883697152" />
+    <state width="2516" height="270" key="GridCell.Tab.1.bottom" timestamp="1622526950416">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.1.bottom/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950416" />
+    <state width="2516" height="270" key="GridCell.Tab.1.bottom/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="2516" height="270" key="GridCell.Tab.1.center" timestamp="1622526950416">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.1.center/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950416" />
+    <state width="2516" height="270" key="GridCell.Tab.1.center/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="2516" height="270" key="GridCell.Tab.1.left" timestamp="1622526950416">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.1.left/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950416" />
+    <state width="2516" height="270" key="GridCell.Tab.1.left/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state width="2516" height="270" key="GridCell.Tab.1.right" timestamp="1622526950416">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2516" height="270" key="GridCell.Tab.1.right/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622526950416" />
+    <state width="2516" height="270" key="GridCell.Tab.1.right/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1622198734692" />
+    <state x="669" y="-1038" key="RollbackChangesDialog" timestamp="1621303733374">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="669" y="-1038" key="RollbackChangesDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1621303733374" />
+    <state x="487" y="-1095" key="SettingsEditor" timestamp="1622424446989">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="487" y="-1095" key="SettingsEditor/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622424446989" />
+    <state x="837" y="-826" key="VCS.ChangelistChooser" timestamp="1617948606229">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="837" y="-826" key="VCS.ChangelistChooser/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1617948606229" />
+    <state x="846" y="-826" key="VCS.EditChangelistDialog" timestamp="1617952278057">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="846" y="-826" key="VCS.EditChangelistDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1617952278057" />
+    <state x="571" y="-1084" width="816" height="611" key="Vcs.Push.Dialog.v2" timestamp="1622530824437">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="571" y="-1084" width="816" height="611" key="Vcs.Push.Dialog.v2/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622530824437" />
+    <state x="788" y="-826" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1622529427422">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="788" y="-826" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622529427422" />
+    <state x="548" y="-1011" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1617780459069">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="548" y="-1011" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1617780459069" />
+    <state x="-301" y="-1369" width="2212" height="1315" key="dock-window-1" timestamp="1622511595744">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="-301" y="-1369" width="2212" height="1315" key="dock-window-1/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622511595744" />
+    <state x="742" y="-1019" width="904" height="592" key="find.popup" timestamp="1622524147775">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="742" y="-1019" width="904" height="592" key="find.popup/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622524147775" />
+    <state x="259" y="146" width="625" height="534" key="find.popup/0.0.1280.680/-301.-1440.2560.1400@0.0.1280.680" timestamp="1618390141447" />
+    <state x="691" y="-952" key="git4idea.merge.GitPullDialog" timestamp="1622530722122">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="691" y="-952" key="git4idea.merge.GitPullDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622530722122" />
+    <state x="795" y="-968" key="refactoring.ChangeSignatureDialog" timestamp="1621404527786">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="795" y="-968" key="refactoring.ChangeSignatureDialog/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1621404527786" />
+    <state x="635" y="-389" width="672" height="677" key="run.anything.popup" timestamp="1621925662560">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="635" y="-389" width="672" height="677" key="run.anything.popup/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1621925662560" />
+    <state x="635" y="-1088" width="672" height="676" key="search.everywhere.popup" timestamp="1622446112907">
+      <screen x="-301" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="635" y="-1088" width="672" height="676" key="search.everywhere.popup/0.0.1280.680/-301.-1440.2560.1400@-301.-1440.2560.1400" timestamp="1622446112907" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="android.bluetooth.BluetoothGatt" fieldName="mDevice" />
+        <PinnedItemInfo typeName="qoi.myhealth.Ble.C18.C18Delegate" fieldName="mGatt" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="gatt" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
